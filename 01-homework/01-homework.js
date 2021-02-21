@@ -15,6 +15,7 @@ const priceOrangeInteger = Math.trunc(priceOrange);
 const pricePeachInteger = Math.trunc(pricePeach);
 const totalAmountInteger =
   priceAppleInteger + priceOrangeInteger + pricePeachInteger;
+console.log(`Сума товарів безкопійок ${totalAmountInteger}`);
 console.log(
   `Сума товарів округлена до сотень ${
     Math.round(totalAmountInteger / 100) * 100
