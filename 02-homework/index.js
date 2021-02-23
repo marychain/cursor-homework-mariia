@@ -6,7 +6,7 @@ do {
     getNumberM = +prompt('Введіть друге число M.');
     numberN = parseInt(getNumberN, 10);
     numberM = parseInt(getNumberM, 10);
-} while (Number.isNaN(numberN) || Number.isNaN(numberN));
+} while (Number.isNaN(numberN) || Number.isNaN(numberM));
 let sumOfNumbers = 0;
 const skipEvenNumbers = confirm('Чи потрібно пропустити парні числа?');
 console.log(skipEvenNumbers);
