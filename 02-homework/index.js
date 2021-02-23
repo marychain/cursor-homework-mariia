@@ -1,16 +1,16 @@
-const getNumberN = +prompt('Введіть перше число N.');
-console.log(typeof (getNumberN));
-const getNumberM = +prompt('Введіть друге число M.');
-console.log(typeof (getNumberM));
-const numberN = parseInt(getNumberN, 10);
-console.log(numberN);
-const numberM = parseInt(getNumberM, 10);
-console.log(numberM);
+let numberN = 0;
+let numberM = 0;
+do {
+    alert('Якщо Ви введете Не число, доведеться ввести дані повторно!')
+    getNumberN = +prompt('Введіть перше число N.');
+    getNumberM = +prompt('Введіть друге число M.');
+    numberN = parseInt(getNumberN, 10);
+    numberM = parseInt(getNumberM, 10);
+} while (Number.isNaN(numberN) || Number.isNaN(numberN));
 let sumOfNumbers = 0;
 const skipEvenNumbers = confirm('Чи потрібно пропустити парні числа?');
 console.log(skipEvenNumbers);
 for (let i = numberN; i <= numberM; i++){
-    
     if (skipEvenNumbers && (i % 2 == 0)) {
         continue;
     }
