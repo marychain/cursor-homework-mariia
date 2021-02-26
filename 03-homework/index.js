@@ -4,10 +4,10 @@ function getMaxDigit(number) {
     const maxDigit = Math.max(...getDigitArray);
     return Number(maxDigit);
 }
-//Функція приведення доступеню
+//Функція приведення до ступеню
 function powNumber(number, pow) {
     const numberOfPow = number;
-    for (i = pow; i > 1; i=i-1){
+    for (let i = pow; i > 1; i=i-1){
         number = (number * numberOfPow);
     }
     return number;
