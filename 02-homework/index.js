@@ -1,5 +1,5 @@
-let numberN;
-let numberM;
+let numberN = 0;
+let numberM = 0;
 do {
     getNumberN = +prompt('Введіть перше число N. Якщо введете НЕ число, доведеться вводити повторно.');
     numberN = parseInt(getNumberN, 10);
