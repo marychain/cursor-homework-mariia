@@ -1,13 +1,17 @@
 let numberN = 0;
 let numberM = 0;
 do {
-    getNumberN = +prompt('Введіть перше число N. Якщо введете НЕ число, доведеться вводити повторно.');
-    numberN = parseInt(getNumberN, 10);
-} while (Number.isNaN(numberN));
+    numberN = +prompt('Введіть перше число N. Якщо введете НЕ число або не ціле число доведеться вводити повторно.');
+} while (!Number.isInteger(numberN));
 do {
-    getNumberM = +prompt('Введіть друге число M. Якщо введете НЕ число, доведеться вводити повторно.');
-    numberM = parseInt(getNumberM, 10);
-} while (Number.isNaN(numberM));
+    numberM = +prompt('Введіть перше число N. Якщо введете НЕ число або не ціле число доведеться вводити повторно.');
+} while (!Number.isInteger(numberM));
+if (numberN > numberM) {
+    console.log(`Число ${numberN} більше за ${numberM}, міняємо їх місцями.`);
+    const tempN = numberN;
+    numberN = numberM;
+    numberM = tempN;
+}
 let sumOfNumbers = 0;
 const skipEvenNumbers = confirm('Чи потрібно пропустити парні числа?');
 console.log(skipEvenNumbers);
@@ -17,4 +21,4 @@ for (let i = numberN; i <= numberM; i++){
     }
     sumOfNumbers += i;
 }
-alert(`Сума чисел від ${numberN} до ${numberM} дорівнює ${sumOfNumbers}`)
+alert(`Сума чисел від ${numberN} до ${numberM} дорівнює ${sumOfNumbers}`);
