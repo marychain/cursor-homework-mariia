@@ -1,9 +1,9 @@
 //Функція для знаходження максимальної цифри
 function getMaxDigit(number) {
     const getDigitArray = number.toString().split('');
-    const maxDigit = Math.max(...getDigitArray);
-    return Number(maxDigit);
+    return maxDigit = Math.max(...getDigitArray);
 }
+
 //Функція приведення до ступеню
 function powNumber(number, pow) {
     const numberOfPow = number;
@@ -14,8 +14,7 @@ function powNumber(number, pow) {
 }
 //Функція, що приводить першу букву до верхнього регістра
 function upperCaseFirstLetter(word) {
-    const wordCase = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    return wordCase;
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 //Функція пошуку випадкового числа в заданому діапазоні
 function getRandomNumber(min, max) {
@@ -29,10 +28,7 @@ function checkPalindrome(str) {
   return str == str.split('').reverse().join('');
 }
 //Функція генерації випадкового пароля, за замовчуванням 8 символів
-function getRandomPassword(len) {
-    if (len == undefined) {
-        len = 8;
-    }
+function getRandomPassword(len = 8) {
     let password = '';
     const numbers = '1234567890';
     for (let i = 0; i < len; i++){
