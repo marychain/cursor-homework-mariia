@@ -35,7 +35,7 @@ function getMarksRandom() {
      return randomMarkForStudent;
  }
 const pairs = getPairs(students);
-console.log(`Масив з парами студентів: ${pairs}`);
+console.log(`Масив з парами студентів:`pairs);
 const themesPairs = getThemes(themes)
 console.log(`Масив з теми проєктів: ${themesPairs}`);
 const marksStudents = getMarks(marks);
