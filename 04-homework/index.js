@@ -26,21 +26,14 @@ function getMarks() {
     }
     return markForStudent;
 }
-// function getMarksRandom() {
-//     let pairsThemesArray = [];
-//     // let markRandomForStudent = [];
-//     for (let index = 0; index < themesPairs.length; index++){
-//         let randomMark = Math.floor(Math.random() * (6 - 1)) + 1;
-//         randomMark = randomMark.split('');
-//         console.log(randomMark);
-//         pairsThemesArray[index].push(randomMark[0]);
-//     }
-//     console.log(randomMark);
-//     return pairsThemesArray;
-// }
-
-
-
+function getMarksRandom() {
+      const randomMarkForStudent = [];
+     for (let index = 0; index < themesPairs.length; index++){
+          const randomMark = Math.floor(Math.random() * (6 - 1)) + 1;
+        	randomMarkForStudent[index]=themesPairs[index].concat(randomMark);
+    }
+     return randomMarkForStudent;
+ }
 const pairs = getPairs(students);
 console.log(pairs);
 const themesPairs = getThemes(themes)
@@ -50,3 +43,5 @@ console.log(marksStudents);
 const studentsMarksRandom = getMarksRandom();
 console.log(studentsMarksRandom);
 console.log(students);
+console.log(themes);
+console.log(marks);
