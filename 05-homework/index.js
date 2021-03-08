@@ -16,12 +16,12 @@ function getAverage(...numbers) {
 console.log("Середнє арифметичне переданих аргументів: ", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function getMedian(...numbers) {
 	numbers = numbers.filter(number => Number.isInteger(number) == true);
-  const halfArray = Math.floor(numbers.length / 2);
-  numbers.sort((a, b) => { return a - b;});
-  if (numbers.length % 2) {
-    return numbers[halfArray];
-  } else {
-    return (numbers[halfArray] + numbers[halfArray] + 1) / 2;
+    const halfArray = Math.floor(numbers.length / 2);
+    numbers.sort((a, b) => { return a - b;});
+    if (numbers.length % 2) {
+        return numbers[halfArray];
+    } else {
+        return (numbers[halfArray] + numbers[halfArray] + 1) / 2;
   }
 }
 console.log("Медіана масиву:",getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
