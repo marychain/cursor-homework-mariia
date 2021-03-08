@@ -1,4 +1,3 @@
-//1.Функція яка повертає масив випадкових цілих чисел
 function getRandomArray(length, min, max) {
     const randomArray = [];
     for (let index = 0; index < length; index++) {
@@ -6,7 +5,7 @@ function getRandomArray(length, min, max) {
     }
     return randomArray;
 }
-console.log(getRandomArray(15, 1, 100));
+console.log("Масив випадкових чисел:", getRandomArray(15, 1, 100));
 function getAverage(...numbers) {
     numbers= numbers.filter(number => Number.isInteger(number) == true);
     total = numbers.reduce((total, number) => {
@@ -14,25 +13,33 @@ function getAverage(...numbers) {
     }, 0);
     return total / numbers.length;
 }
-console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log("Середнє арифметичне переданих аргументів: ", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+function getMedian(...numbers) {
+	numbers = numbers.filter(number => Number.isInteger(number) == true);
+  const halfArray = Math.floor(numbers.length / 2);
+  numbers.sort((a, b) => { return a - b;});
+  if (numbers.length % 2) {
+    return numbers[halfArray];
+  } else {
+    return (numbers[halfArray] + numbers[halfArray] + 1) / 2;
+  }
+}
+console.log("Медіана масиву:",getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function filterEvenNumbers(...numbers) {
     const filterNumbers = numbers.filter(number => (number % 2) !== 0);
     return filterNumbers;
 }
-console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
-//6.Функція яка порахує кількість чисел більших 0
+console.log("Масив з відфільтрованими парними числами:",filterEvenNumbers(1, 2, 3, 4, 5, 6));
 function countPositiveNumbers(...numbers) {
     const positiveNumbers = numbers.filter(number => number > 0);
     return positiveNumbers.length;
 }
-console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
-//7.Функція яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
+console.log("Кількість чисел більших за 0:",countPositiveNumbers(1, -2, 3, -4, -5, 6));
 function getDividedByFive(...numbers) {
     const dividedByFive = numbers.filter(number => (number % 5) === 0);
     return dividedByFive;
 }
-console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
-// 8.Функція яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*)
+console.log("Масив чисел, що діляться на 5:",getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function replaceBadWords(string) {
     const wordsArray = string.split(' ');
     const badWords = ["shit", "fuck"];
@@ -47,7 +54,6 @@ function replaceBadWords(string) {
 console.log(replaceBadWords("Are you fucking kidding?"));
 console.log(replaceBadWords("Holy shit!"));
 console.log(replaceBadWords("It's bullshit!"));
-// 9.Функція яка розбиває кожне слово на умовні склади по 3 букви
 function divideByThree(word) {
     const divideByThreeArray = [];
     for (let i = 0; i < word.length; i += 3) {
