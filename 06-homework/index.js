@@ -1,0 +1,59 @@
+const students = [{
+  name: "Tanya",
+  course: 3,
+  subjects: {
+    math: [4, 4, 3, 4],
+    algorithms: [3, 3, 3, 4, 4, 4],
+    data_science: [5, 5, 3, 4]
+  }
+}, {
+  name: "Victor",
+  course: 4,
+  subjects: {
+    physics: [5, 5, 5, 3],
+    economics: [2, 3, 3, 3, 3, 5],
+    geometry: [5, 5, 2, 3, 5]
+  }
+}, {
+  name: "Anton",
+  course: 2,
+  subjects: {
+    statistics: [4, 5, 5, 5, 5, 3, 4, 3, 4, 5],
+    english: [5, 3],
+    cosmology: [5, 5, 5, 5]
+  }
+    }];
+function getSubjects(students) {
+    const subjectsArray = Object.keys(students.subjects).map((subject) => {
+        return subject[0].toUpperCase() + subject.slice(1).split('_').join(' ');
+    });
+    return subjectsArray;
+}
+function getAverageMark(students) {
+    const markArray = Object.values(students.subjects).flat();
+    total = markArray.reduce((total, number) => {
+        return total + number;
+    }, 0);
+    return (total / markArray.length).toFixed(2);
+}
+function getStudentInfo(students) {
+    students.averageMark = getAverageMark(students);
+    return JSON.stringify(students, ['course', 'name', 'averageMark'], 1);
+}
+function getStudentsNames() {
+    const studentsNamesArray = Object.values(students).map((object) => {
+        return object.name;
+    });
+    return studentsNamesArray.sort();
+}
+function getBestStudent() {
+    
+
+}
+
+
+console.log('Список предметів для конкретного студента:',getSubjects(students[0]));
+console.log('Cередня оцінка по усім предметам для переданого студента:', getAverageMark(students[0]));
+console.log('Інформація загального виду по переданому студенту:', getStudentInfo(students[0]));
+console.log('Функція повертає імена студентів у алфавітному порядку:', getStudentsNames(students));
+console.log('Кращий студент зі списку по показнику середньої оцінки:',getBestStudent(students));
