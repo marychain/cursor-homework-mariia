@@ -67,7 +67,7 @@ function calculateWordLetters(string) {
         let counter = 0;
         for (let i = 0; i < lettersArray.length; i++) {
             if (letter === lettersArray[i]) {
-                counter = counter + 1;
+                counter++;
             }
              calculateLetters[letter] = counter;
         }
