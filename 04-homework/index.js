@@ -35,13 +35,10 @@ function getMarksRandom() {
      return randomMarkForStudent;
  }
 const pairs = getPairs(students);
-console.log(pairs);
+console.log('Пари(хлопець + дівчина)', pairs);
 const themesPairs = getThemes(themes)
-console.log(themesPairs);
+console.log('Пари та теми проєктів', themesPairs);
 const marksStudents = getMarks(marks);
-console.log(marksStudents);
+console.log('Студенти з оцінками', marksStudents);
 const studentsMarksRandom = getMarksRandom();
-console.log(studentsMarksRandom);
-console.log(students);
-console.log(themes);
-console.log(marks);
+console.log('Студенти з оцінками за проєкти', studentsMarksRandom);
