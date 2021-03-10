@@ -47,13 +47,36 @@ function getStudentsNames() {
     return studentsNamesArray.sort();
 }
 function getBestStudent() {
-    
-
+    for (let i = 0; i < students.length; i++){
+        students[i].averageMark = getAverageMark(students[i]);
+    }
+    let bestMark = 0;
+    let bestName = '';
+    const studentsBestMark = Object.values(students).map((object) => {
+        if (bestMark < object.averageMark) {
+            bestMark = object.averageMark;
+            bestName = object.name;
+        }
+    });
+    return bestName;
 }
-
-
+function calculateWordLetters(string) {
+    const lettersArray = [...string];
+    const calculateLetters = {};
+    lettersArray.map((letter) => {
+        let counter = 0;
+        for (let i = 0; i < lettersArray.length; i++) {
+            if (letter === lettersArray[i]) {
+                counter = counter + 1;
+            }
+             calculateLetters[letter] = counter;
+        }
+    })
+    return calculateLetters;
+}
 console.log('Список предметів для конкретного студента:',getSubjects(students[0]));
 console.log('Cередня оцінка по усім предметам для переданого студента:', getAverageMark(students[0]));
 console.log('Інформація загального виду по переданому студенту:', getStudentInfo(students[0]));
 console.log('Функція повертає імена студентів у алфавітному порядку:', getStudentsNames(students));
-console.log('Кращий студент зі списку по показнику середньої оцінки:',getBestStudent(students));
+console.log('Кращий студент зі списку по показнику середньої оцінки:', getBestStudent(students));
+console.log('Обє`кт, в якому ключі це букви у слові, а значення – кількість їх повторень:',calculateWordLetters("тест"));
