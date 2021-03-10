@@ -6,6 +6,24 @@ function getRandomArray(length, min, max) {
     return randomArray;
 }
 console.log("Масив випадкових чисел:", getRandomArray(15, 1, 100));
+function getModa(...numbers) {
+    let moda=0;
+	numbers.filter(number => Number.isInteger(number) == true).map((number) => {
+        let counter = 0;
+        let maxCounterValue = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            if (number == numbers[i]) 
+                counter++;
+            if(counter > maxCounterValue){
+                maxCounterValue = counter;
+                moda = number;
+            }
+        }
+        counter = 0;
+    });
+    return moda;
+}
+console.log("Мода масиву:", getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function getAverage(...numbers) {
     numbers= numbers.filter(number => Number.isInteger(number) == true);
     total = numbers.reduce((total, number) => {
