@@ -79,5 +79,5 @@ function divideByThree(word) {
     }
     return divideByThreeArray;    
 }
-console.log(divideByThree("Commander"));
-console.log(divideByThree("live"));
+console.log('Слова розбиті на склади по 3 букви:', divideByThree("Commander"));
+console.log('Слова розбиті на склади по 3 букви:', divideByThree("live"));
