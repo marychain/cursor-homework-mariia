@@ -61,7 +61,7 @@ function getBestStudent() {
     return bestName;
 }
 function calculateWordLetters(string) {
-    const lettersArray = [...string];
+    const lettersArray = [...string.toLowerCase()];
     const calculateLetters = {};
     lettersArray.map((letter) => {
         let counter = 0;
@@ -79,4 +79,4 @@ console.log('Cередня оцінка по усім предметам для 
 console.log('Інформація загального виду по переданому студенту:', getStudentInfo(students[0]));
 console.log('Функція повертає імена студентів у алфавітному порядку:', getStudentsNames(students));
 console.log('Кращий студент зі списку по показнику середньої оцінки:', getBestStudent(students));
-console.log('Обє`кт, в якому ключі це букви у слові, а значення – кількість їх повторень:',calculateWordLetters("тест"));
+console.log('Обє`кт, в якому ключі це букви у слові, а значення – кількість їх повторень:',calculateWordLetters("Тест"));
