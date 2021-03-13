@@ -2,20 +2,17 @@ const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 function getMyTaxes(salary){
-    const myTax = salary * this.tax;
-    return myTax;
+    return myTax = salary * this.tax;
 }
 console.log('Величина податку IT-спеціаліста в одній з країн :', getMyTaxes.call(ukraine, 1000));
 function getMiddleTaxes() {
-    const middleTaxes = this.tax * this.middleSalary;
-    return middleTaxes;
+    return middleTaxes = this.tax * this.middleSalary;
 }
 console.log('Середня величина податку IT-спеціаліста в Україні:', getMiddleTaxes.call(ukraine));
 console.log('Середня величина податку IT-спеціаліста в Латвії:', getMiddleTaxes.call(latvia));
 console.log('Середня величина податку IT-спеціаліста в Литві:', getMiddleTaxes.call(litva));
 function getTotalTaxes() {
-    const totalTaxCountry = this.tax * this.middleSalary * this.vacancies;
-    return totalTaxCountry;
+    return totalTaxCountry = this.tax * this.middleSalary * this.vacancies;
 }
 console.log('Загальна сума податку в Україні:', getTotalTaxes.call(ukraine));
 console.log('Загальна сума податку в Латвії:', getTotalTaxes.call(latvia));
