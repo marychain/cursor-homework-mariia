@@ -23,12 +23,9 @@ const students = [{
     cosmology: [5, 5, 5, 5]
   }
     }];
-function getSubjects(students) {
-    const subjectsArray = Object.keys(students.subjects).map((subject) => {
-        return subject[0].toUpperCase() + subject.slice(1).split('_').join(' ');
-    });
-    return subjectsArray;
-}
+const getSubjects = (students) => Object.keys(students.subjects).map((subject) => {
+    return subject[0].toUpperCase() + subject.slice(1).split('_').join(' ')
+});
 function getAverageMark(students) {
     const markArray = Object.values(students.subjects).flat();
     total = markArray.reduce((total, number) => {
