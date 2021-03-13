@@ -8,11 +8,11 @@ function getModa(...numbers) {
 	numbers.filter(number => Number.isInteger(number) == true).map((number) => {
         for (let i = 0; i < numbers.length; i++) {
             if (number === numbers[i]) 
-                counter++;
-                  maxCounterValue = counter;
-                  moda = numbers[i];
-               if (counter <= maxCounterValue)
-               break;
+            counter++;
+            maxCounterValue = counter;
+            moda = numbers[i];
+            if (counter <= maxCounterValue)
+            break;
         } 
     });
     return moda;
