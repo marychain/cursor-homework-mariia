@@ -9,15 +9,17 @@ function getModa(...numbers) {
         for (let i = 0; i < numbers.length; i++) {
             if (number === numbers[i]) 
             counter++;
-            maxCounterValue = counter;
-            moda = numbers[i];
-            if (counter <= maxCounterValue)
-            break;
+            if (counter > maxCounterValue){
+                maxCounterValue = counter;    
+                moda = numbers[i];
+            } else {
+                counter = 0;
+            }
         } 
     });
     return moda;
 }
-console.log("Мода масиву:", getModa(6, 6, 6, 6, 6, 2, 55, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log("Мода масиву:", getModa(6, 2, 55, 6, 6, 78, 2, 55, 6, 77, 57, 87, 23, 2, 6,  56, 3, 2));
 const getAverage = (...numbers) => numbers.reduce((total, number) => total + number) / numbers.length;
 console.log("Середнє арифметичне переданих аргументів: ", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 function getMedian(...numbers) {
