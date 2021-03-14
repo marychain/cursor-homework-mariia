@@ -34,8 +34,12 @@ function getAverageMark(students) {
     return (total / markArray.length).toFixed(2);
 }
 function getStudentInfo(students) {
-    students.averageMark = getAverageMark(students);
-    return JSON.stringify(students, ['course', 'name', 'averageMark'], 1);
+    const studentInfo = {
+        name: students.name,
+        course: students.course,
+        averageMark: getAverageMark(students)
+    }
+    return studentInfo;
 }
 function getStudentsNames() {
     const studentsNamesArray = Object.values(students).map((object) => {
