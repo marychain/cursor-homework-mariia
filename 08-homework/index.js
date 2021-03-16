@@ -43,7 +43,7 @@ class BudgetStudent extends Student {
         setInterval(() => console.log(`Ви отримали ${this.getScholarship()} грн. стипендії`), 30000);
     }
     getScholarship() {
-        if(this.isDismiss !== null && this.getAverageMark() >= 4){
+        if(this.marks !== null && this.getAverageMark() >= 4){
             return this.scholarship;
         }  else {
             return null;
