@@ -1,57 +1,56 @@
 class Student {
-    constructor(university, course, fullName, marks = []) {
+    constructor(university, course, fullName, marks = [], isDismiss = false) {
         this.university = university;
         this.course = course;
         this.fullName = fullName;
         this.marks = marks;
+        this.isDismiss = isDismiss;
     }
     getInfo() {
         return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`;
     }
     get getMarks() {
-        if(this.isDismiss !== null){
+        if(this.isDismiss === false){
             return this.marks;
         } else {
             return null;
         }
     }
     set setMarks(newMark) {
-        if(this.marks !== null)
+        if(this.isDismiss === false)
         this.marks.push(newMark);
     }
     getAverageMark() {
-        if (this.marks !== null) {
-            const total = this.marks.reduce((total, mark) => {
-                return total + mark;
-            }, 0);
-            return (total / this.marks.length);
-        } else {
-            return null;
-        }
+        const total = this.marks.reduce((total, mark) => {
+        return total + mark;
+        }, 0);
+        return (total / this.marks.length);
     }
     dismiss() {
-        this.marks = null;
+        this.isDismiss = true;
+        console.log('Студента виключено.');
     }
     recover() {
-        this.marks = [];
+        this.isDismiss = false;
+        console.log('Студента поновлено.');
     }   
 }
 class BudgetStudent extends Student {
-    constructor(university, course, fullName, marks = [], scholarship) {
-        super(university, course, fullName, marks);
+    constructor(university, course, fullName, marks = [], isDismiss, scholarship) {
+        super(university, course, fullName, marks, isDismiss);
         this.scholarship = scholarship;
         setInterval(() => console.log(`Ви отримали ${this.getScholarship()} грн. стипендії`), 30000);
     }
     getScholarship() {
-        if(this.marks !== null && this.getAverageMark() >= 4){
+        if(this.isDismiss === false && this.getAverageMark() >= 4){
             return this.scholarship;
         }  else {
             return null;
         } 
     }
 }
-const student = new Student('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер', [5, 4, 4, 5]);
-const budgetStudent = new BudgetStudent('Держаного університету телекомунікацій', '1', 'Чаїн-Головіна Марія', [5, 4, 5, 5], 1400);
+const student = new Student('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Бендер', [5, 4, 4, 5]);
+const budgetStudent = new BudgetStudent('Держаного університету телекомунікацій', '1', 'Чаїн-Головіна Марія', [5, 4, 5, 5], false, 1400);
 console.log(student.getInfo());
 console.log('Початковий масив оцінок', student.getMarks);
 student.setMarks = 5;
