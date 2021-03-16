@@ -1,16 +1,15 @@
 class Student {
-    constructor(university, course, fullName, marks = [], isDismiss = false) {
+    constructor(university, course, fullName, marks = []) {
         this.university = university;
         this.course = course;
         this.fullName = fullName;
         this.marks = marks;
-        this.isDismiss = isDismiss;
     }
     getInfo() {
         return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`;
     }
     get getMarks() {
-        if(this.isDismiss === false){
+        if(this.isDismiss !== null){
             return this.marks;
         } else {
             return null;
@@ -38,13 +37,13 @@ class Student {
     }   
 }
 class BudgetStudent extends Student {
-    constructor(university, course, fullName, marks = [], isDismiss, scholarship) {
-        super(university, course, fullName, marks, isDismiss);
+    constructor(university, course, fullName, marks = [], scholarship) {
+        super(university, course, fullName, marks);
         this.scholarship = scholarship;
         setInterval(() => console.log(`Ви отримали ${this.getScholarship()} грн. стипендії`), 30000);
     }
     getScholarship() {
-        if(this.isDismiss === false && this.getAverageMark() >= 4){
+        if(this.isDismiss !== null && this.getAverageMark() >= 4){
             return this.scholarship;
         }  else {
             return null;
@@ -52,7 +51,7 @@ class BudgetStudent extends Student {
     }
 }
 const student = new Student('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер', [5, 4, 4, 5]);
-const budgetStudent = new BudgetStudent('Держаного університету телекомунікацій', '1', 'Чаїн-Головіна Марія', [5, 4, 5, 5], false, 1400);
+const budgetStudent = new BudgetStudent('Держаного університету телекомунікацій', '1', 'Чаїн-Головіна Марія', [5, 4, 5, 5], 1400);
 console.log(student.getInfo());
 console.log('Початковий масив оцінок', student.getMarks);
 student.setMarks = 5;
