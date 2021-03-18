@@ -10,14 +10,14 @@ class Student {
         return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`;
     }
     get getMarks() {
-        if(this.isDismiss === false){
+        if(!this.isDismiss){
             return this.marks;
         } else {
             return null;
         }
     }
     set setMarks(newMark) {
-        if(this.isDismiss === false)
+        if(!this.isDismiss)
         this.marks.push(newMark);
     }
     getAverageMark() {
@@ -42,7 +42,7 @@ class BudgetStudent extends Student {
         setInterval(() => console.log(`Ви отримали ${this.getScholarship()} грн. стипендії`), 30000);
     }
     getScholarship() {
-        if(this.isDismiss === false && this.getAverageMark() >= 4){
+        if(!this.isDismiss && this.getAverageMark() >= 4){
             return this.scholarship;
         }  else {
             return null;
