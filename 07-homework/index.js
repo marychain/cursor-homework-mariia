@@ -19,8 +19,10 @@ console.log('Загальна сума податку в Латвії:', getTota
 console.log('Загальна сума податку в Литві:', getTotalTaxes.call(litva));
 function getMySalary(country) {
     setInterval(() => {
+        const min = 1500;
+        const max = 2000
         const mySalary = {};
-        mySalary.salary = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
+        mySalary.salary = Math.floor(Math.random() * (max - min + 1)) + min;
         mySalary.taxes = +(mySalary.salary * country.tax).toFixed(2);
         mySalary.profit = +(mySalary.salary - mySalary.taxes).toFixed(2);
         console.log('Виведення об`єкту кожні 10 секунд:', mySalary);
