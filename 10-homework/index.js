@@ -14,7 +14,7 @@ function generateBlocks() {
         for (let j = 0; j < 5; j++){
             const squareChild = document.createElement('div');
             squareChild.classList.add("colour");
-            squareParent.insertAdjacentElement("afterbegin", squareChild);
+            squareParent.insertAdjacentElement('afterbegin', squareChild);
             squareChild.style.width = '50px';
             squareChild.style.height = '50px';
             squareChild.style.backgroundColor = getColour();   
