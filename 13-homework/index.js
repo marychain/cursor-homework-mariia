@@ -24,6 +24,8 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
                     document.querySelector(".next").remove();
                     document.querySelector(".title_items").remove();
                 }
+                const test = document.querySelector('.header');
+                test.style.height ="60vh"
                 const titleItems = document.createElement('section');
                 titleItems.classList.add('title_items');
                 document.body.appendChild(titleItems);

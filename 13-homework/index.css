@@ -15,7 +15,8 @@ header {
   align-items: center;
   background: url("assets/img/73f37cccb447202378844463c97f0e30.jpg") no-repeat;
   background-size: 100%;
-  min-height: 400px;
+  height: 100vh;
+  transition: all 0.8s ease;
 }
 .select_episode {
   display: flex;
