@@ -10,6 +10,9 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
     const episode = axios.get(numberEpisode)
         .then((episode) => {
             const people = episode.data.characters;
+            for (let i = 0; i < people.length; i++){
+                people[i] = people[i].replace('http', 'https');
+            }
             const h1 = document.createElement('h1');
             const header = document.querySelector('.header');
             header.appendChild(h1);
@@ -39,7 +42,7 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
                 document.querySelector('.header').appendChild(nextButton);
                 for (let i = 0; i < people.length; i++) {
                     axios.get(people[i])
-                        .then((res) => {
+                        .then((res) => {    
                             const article = document.createElement('article');
                             article.classList.add('people_item');
                             const h3 = document.createElement('h3');
