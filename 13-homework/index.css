@@ -18,6 +18,11 @@ header {
   height: 100vh;
   transition: all 0.8s ease;
 }
+.par {
+  font-size: 50px;
+  color: #eaeaea;
+  text-align: center;
+}
 .select_episode {
   display: flex;
   flex-direction: row;
