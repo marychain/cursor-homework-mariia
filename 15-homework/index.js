@@ -1,4 +1,3 @@
-
 function* createIdGenerator() {
   for (let index = 1; index < Infinity; index++) {
       yield index;
@@ -17,14 +16,34 @@ function* newFontGenerator(start) {
     for (let index = 1; index < Infinity; index++) { 
         if (result === "up") {
             font += 2;
+            text.style.fontSize = font + 'px';
         } else if (result === "down") {
             font -= 2;
+            text.style.fontSize = font + 'px';
+        } else {
+            font;
         }
-        console.log(font);
         result = yield;
     }
 }
 const fontGenerator = newFontGenerator(14);
+const upFont = document.querySelector('.up');
+const downFont = document.querySelector('.down');
+const nowStateFont = document.querySelector('.now');
+upFont.addEventListener('click', ()=>{
+    fontGenerator.next("up").value;
+})
+downFont.addEventListener('click', ()=>{
+    fontGenerator.next("down").value;
+})
+nowStateFont.addEventListener('click', ()=>{
+    const fontNow = document.createElement('p');
+    fontNow.classList.add('fontNow');
+    fontNow.textContent = 'Поточний шрифт:'+`${ fontGenerator.next().value }`;
+    document.body.appendChild(fontNow);
+
+})
+
 //fontGenerator.next("up").value;
 // fontGenerator.next("up").value;
 // fontGenerator.next("up").value;
