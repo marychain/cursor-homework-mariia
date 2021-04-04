@@ -42,12 +42,3 @@ downFont.addEventListener('click', ()=>{
 nowStateFont.addEventListener('click', ()=>{
     fontGenerator.next().value;
 })
-
-//fontGenerator.next("up").value;
-// fontGenerator.next("up").value;
-// fontGenerator.next("up").value;
-// fontGenerator.next().value;
-// fontGenerator.next("down").value;
-// fontGenerator.next("down").value;
-// fontGenerator.next("down").value;
-// fontGenerator.next().value;
