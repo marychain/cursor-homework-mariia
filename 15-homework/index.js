@@ -21,7 +21,10 @@ function* newFontGenerator(start) {
             font -= 2;
             text.style.fontSize = font + 'px';
         } else {
-            font;
+            const fontNow = document.createElement('p');
+            fontNow.classList.add('fontNow');
+            fontNow.textContent = 'Поточний шрифт:' + font;
+            document.body.appendChild(fontNow);
         }
         result = yield;
     }
@@ -37,11 +40,7 @@ downFont.addEventListener('click', ()=>{
     fontGenerator.next("down").value;
 })
 nowStateFont.addEventListener('click', ()=>{
-    const fontNow = document.createElement('p');
-    fontNow.classList.add('fontNow');
-    fontNow.textContent = 'Поточний шрифт:'+`${ fontGenerator.next().value }`;
-    document.body.appendChild(fontNow);
-
+    fontGenerator.next().value;
 })
 
 //fontGenerator.next("up").value;
