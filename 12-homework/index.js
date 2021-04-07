@@ -5,7 +5,7 @@ async function getRandomChinese(length) {
         time += String.fromCharCode(Date.now()).slice(-5);   
         i++;
         await new Promise((resolve) => {
-            setTimeout(() => {resolve(time)}, length * 50)
+            setTimeout(() => {resolve(time)}, 50)
         })
     }
     console.log(time);    
