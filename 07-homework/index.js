@@ -1,4 +1,4 @@
-const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
+export const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 function getMyTaxes(salary){
@@ -25,7 +25,6 @@ function getMySalary(country) {
         mySalary.salary = Math.floor(Math.random() * (max - min + 1)) + min;
         mySalary.taxes = +(mySalary.salary * country.tax).toFixed(2);
         mySalary.profit = +(mySalary.salary - mySalary.taxes).toFixed(2);
-        console.log('Виведення об`єкту кожні 10 секунд:', mySalary);
+        console.log('Output of the object every 10 seconds from HW7:', mySalary);
     }, 10000);
 }
-getMySalary(ukraine);

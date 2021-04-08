@@ -64,3 +64,4 @@ function divideByThree(word) {
 }
 console.log('Слова розбиті на склади по 3 букви:', divideByThree("Commander"));
 console.log('Слова розбиті на склади по 3 букви:', divideByThree("live"));
+export {replaceBadWords};

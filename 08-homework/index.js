@@ -28,11 +28,11 @@ class Student {
     }
     dismiss() {
         this.isDismiss = true;
-        console.log('Студента виключено.');
+        //console.log('Студента виключено.');
     }
     recover() {
         this.isDismiss = false;
-        console.log('Студента поновлено.');
+        //console.log('Студента поновлено.');
     }   
 }
 class BudgetStudent extends Student {
@@ -64,7 +64,7 @@ student.recover();
 console.log('Масив оцінок після відновлення студента', student.getMarks);
 student.setMarks = 5;
 console.log('Ставимо оцінку після відновлення студента', student.getMarks);
-//Advanced
+Advanced
 console.log(budgetStudent.getInfo());
 console.log(`Ви отримали ${budgetStudent.getScholarship()} грн. стипендії`);
 budgetStudent.dismiss();

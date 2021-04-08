@@ -5,9 +5,7 @@ console.log(`Ціна яблука ${priceApple}`);
 console.log(`Ціна апельсина ${priceOrange}`);
 console.log(`Ціна персика ${pricePeach}`);
 const maxPrice = Math.max(priceApple, priceOrange, pricePeach);
-console.log(
-  `Максимальна ціна ${maxPrice}`
-);
+console.log(`Максимальна ціна ${maxPrice}`);
 const minPrice = Math.min(priceApple, priceOrange, pricePeach);
 console.log(`Мінімальна ціна ${minPrice}`);
 const totalAmount = priceApple + priceOrange + pricePeach;

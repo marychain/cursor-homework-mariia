@@ -8,6 +8,6 @@ async function getRandomChinese(length) {
             setTimeout(() => {resolve(time)}, 50)
         })
     }
-    console.log(time);    
+    console.log("Get random chinese from HW#12:", time);    
 }
 getRandomChinese(4);

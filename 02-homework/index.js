@@ -1,4 +1,5 @@
-let numberN = 0;
+function getSumOfNumbers () {
+    let numberN = 0;
 let numberM = 0;
 do {
     numberN = +prompt('Введіть перше число N. Якщо введете НЕ число або не ціле число доведеться вводити повторно.');
@@ -22,3 +23,4 @@ for (let i = numberN; i <= numberM; i++){
     sumOfNumbers += i;
 }
 alert(`Сума чисел від ${numberN} до ${numberM} дорівнює ${sumOfNumbers}`);
+}
