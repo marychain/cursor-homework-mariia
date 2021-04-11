@@ -9,8 +9,9 @@ console.log(idGenerator.next().value);
 console.log(idGenerator.next().value);
 
 function* newFontGenerator(start) {
+    startFont = start;
     const text = document.querySelector('.text');
-    text.style.fontSize = start + 'px';
+    text.style.fontSize = startFont + 'px';
     let font = Number.parseInt(text.style.fontSize);
     let result = null;
     for (let index = 1; index < Infinity; index++) { 
