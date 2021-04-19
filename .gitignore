@@ -4,3 +4,4 @@
 16-homework/*.json
 16-homework/src/*
 16-homework/node_modules/*
+16-homework/.babelrc

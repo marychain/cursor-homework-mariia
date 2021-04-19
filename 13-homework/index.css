@@ -90,6 +90,7 @@ input,
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-left: 30px;
 }
 .info {
   display: flex;

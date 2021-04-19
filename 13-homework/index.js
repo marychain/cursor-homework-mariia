@@ -1,9 +1,11 @@
+let currentPlanetPage = 1;
 document.querySelector('.select').addEventListener('click', function setEpisode() {
     if (document.querySelector(".title") || document.querySelector(".items") || document.querySelector(".title_item")) {
         document.querySelector(".title").remove();
         document.querySelector(".items").remove();
         document.querySelector(".next").remove();
         document.querySelector(".title_items").remove();
+        document.querySelector(".get_planet").remove();
     }
     let numberEpisode = document.getElementById("form_input").value;
     numberEpisode = 'https://swapi.dev/api/films/' + `${numberEpisode}` + '/';
@@ -23,6 +25,7 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
                     document.querySelector(".items").remove();
                     document.querySelector(".next").remove();
                     document.querySelector(".title_items").remove();
+                    document.querySelector(".get_planet").remove();
                 }
                 document.querySelector('.par').style.display = "none";
                 document.querySelector('.header').style.height = "60vh";
@@ -37,11 +40,19 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
                 sectionPeople.classList.add('items');
                 sectionPeople.classList.add('info');
                 document.body.appendChild(sectionPeople);
-                const nextButton = document.createElement('button');
-                nextButton.classList.add('next');
-                nextButton.classList.add('button');
-                nextButton.textContent = 'Next';
-                document.querySelector('.header').appendChild(nextButton);
+                const planetButtons = document.createElement('div');
+                planetButtons.classList.add('planet_button');
+                const getPlanetButton = document.createElement('button');
+                getPlanetButton.classList.add('get_planet');
+                getPlanetButton.classList.add('button');
+                getPlanetButton.textContent = 'Get planet';
+                const next = document.createElement('button');
+                next.classList.add('next');
+                next.classList.add('button');
+                next.textContent = 'Next';
+                document.querySelector('.header').appendChild(planetButtons);
+                document.querySelector('.planet_button').appendChild(getPlanetButton);
+                document.querySelector('.planet_button').appendChild(next);
                 for (let i = 0; i < people.length; i++) {
                     axios.get(people[i])
                         .then((res) => {    
@@ -84,40 +95,49 @@ document.querySelector('.select').addEventListener('click', function setEpisode(
                             sectionPeople.appendChild(article);
                         })
                 }
-                document.querySelector('.next').addEventListener('click', function getPlanets() {
+                
+                function getListOfPlanet () {
                     document.querySelector(".items").remove();
                     document.querySelector(".title_items").remove();
-                    const planets = axios.get('https://swapi.dev/api/planets/')
-                        .then((planets) => {
-                            const planet = planets.data.results;
-                            const titleItems = document.createElement('section');
-                            titleItems.classList.add('title_items');
-                            document.body.appendChild(titleItems);
-                            const h2 = document.createElement('h2');
-                            h2.classList.add('title_items');
-                            document.querySelector('.title_items').appendChild(h2);
-                            h2.textContent = 'ALL PLANETS';
-                            const sectionPlanets = document.createElement('section');
-                            sectionPlanets.classList.add('items');
-                            sectionPlanets.classList.add('info');
-                            document.body.appendChild(sectionPlanets);
-                            for (let i = 0; i < planet.length; i++) {
-                                const article = document.createElement('article');
-                                article.classList.add('planets_item');
-                                const imgItem = document.createElement("img");
-                                const imgItems = document.createElement("div");
-                                imgItems.classList.add('image_items');
-                                imgItem.classList.add('image_item');
-                                article.appendChild(imgItems);
-                                imgItem.setAttribute("src", "assets/img/" + `${planet[i].name}` + '.png');
-                                imgItems.appendChild(imgItem);
-                                const h3 = document.createElement('h3');
-                                h3.textContent = planet[i].name;
-                                article.appendChild(h3);
-                                sectionPlanets.appendChild(article);
-                            }
-                        })
-                })
+                    axios.get('https://swapi.dev/api/planets/?page='+`${currentPlanetPage}`)
+                    .then((res) => { 
+                        const planet = res.data.results;
+                        const titleItems = document.createElement('section');
+                        titleItems.classList.add('title_items');
+                        document.body.appendChild(titleItems);
+                        const h2 = document.createElement('h2');
+                        h2.classList.add('title_items');
+                        document.querySelector('.title_items').appendChild(h2);
+                        h2.textContent = 'ALL PLANETS';
+                        const sectionPlanets = document.createElement('section');
+                        sectionPlanets.classList.add('items');
+                        sectionPlanets.classList.add('info');
+                        document.body.appendChild(sectionPlanets);
+                        for (let i = 0; i < planet.length; i++) {
+                            const article = document.createElement('article');
+                            article.classList.add('planets_item');
+                            const imgItem = document.createElement("img");
+                            const imgItems = document.createElement("div");
+                            imgItems.classList.add('image_items');
+                            imgItem.classList.add('image_item');
+                            article.appendChild(imgItems);
+                            imgItem.setAttribute("src", "assets/img/" + `${planet[i].name}` + ('.png' || '.jpg' || 'jpeg'));
+                            imgItems.appendChild(imgItem);
+                            const h3 = document.createElement('h3');
+                            h3.textContent = planet[i].name;
+                            article.appendChild(h3);
+                            sectionPlanets.appendChild(article);
+                        }
+                        if(currentPlanetPage > 5){
+                            currentPlanetPage = 1;
+                        } else {
+                        currentPlanetPage++;
+                        }
+                    })
+                }
+
+                document.querySelector('.get_planet').addEventListener('click', getListOfPlanet);
+                document.querySelector('.next').addEventListener('click', getListOfPlanet);
             })  
         })
 });
