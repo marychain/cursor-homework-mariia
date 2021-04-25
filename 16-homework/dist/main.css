@@ -2,14 +2,16 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  background: url(assets/img/3f5ee6851be1c61781e4b90e674c89e7.jpg) center;
+  background: url(assets/img/7027205e5d7903d6796f268b2c8d07ff.jpg) center;
 }
-/* .key {
+
+
+.key {
   font-size: 70px;
   text-align: center;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 20vh;
   align-items: center;
 }
 kbd {
@@ -30,5 +32,12 @@ kbd.style {
   border-color: #ffcc40;
   transform: scale(1.2);
   background: rgba(0, 0, 0, 0.3);
-} */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  color: azure;
+  background-color: black;
+}
 
