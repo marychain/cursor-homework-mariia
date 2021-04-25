@@ -2,7 +2,8 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  background: url(assets/img/7027205e5d7903d6796f268b2c8d07ff.jpg) center;
+  background: url(assets/img/18bc02482fbd8b895ba288cf6ec27073.jpg) no-repeat 100%;
+  background-size: cover;
 }
 
 
